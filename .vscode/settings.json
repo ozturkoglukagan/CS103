@@ -1,5 +1,6 @@
 {
     "java.project.sourcePaths": [
-        "quizzes"
+        "quizzes",
+        "HW_02"
     ]
 }
