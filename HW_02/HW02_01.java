@@ -3,8 +3,7 @@ import java.util.Scanner;
 public class HW02_01 {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
-        quadratic(1, -5, 6);
-        forLoop();
+        //forLoop();
         /*
          * System.out.println("Please enter the a b and c with order: "); int
          * a=scan.nextInt(); int b=scan.nextInt(); int c=scan.nextInt(); quadratic(a, b,
