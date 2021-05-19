@@ -71,5 +71,7 @@ You earned 4 total points.
 
  */
 public class lab09 {
-    
+    public static void name() {
+        
+    }
 }

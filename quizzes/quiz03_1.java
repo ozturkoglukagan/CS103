@@ -1,4 +1,4 @@
-package CS103;
+
 public class quiz03_1 { 
     
     static int x = 15; 
