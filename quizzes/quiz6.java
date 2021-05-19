@@ -1,25 +1,33 @@
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class quiz6 {
-    public static void main(String[] args) {
-        Scanner console= new Scanner(System.in);
-        System.out.println("The sum of the square digits of your number is: "+sumOfSqDigits(console));
 
+    public static void main (String[] args) throws FileNotFoundException {
+        Scanner scan= new Scanner(new File("/Users/kaganozturkoglu/vs-workplace/integers.txt"));
+        oddNumbers(scan);
         
     }
-    public static int sumOfSqDigits(Scanner scan) {
-        System.out.print("--------------------------------------\nWelcome to my Square Digit Sum Program\n--------------------------------------\nPlease enter the number you want to sum of its square digits: ");
-        int number = scan.nextInt();
-        number = Math.abs(number);
-        int sum = 0;
 
-        while (number > 0) {
-            sum += Math.pow(number % 10,2);
-            number /= 10;
+    public static void oddNumbers(Scanner scan) {
+    int totalNumber=0;int sum=0;int oddNumber=0;double oddPercentile=0.0;
+    
+        while (scan.hasNext()) {
+            int tempNumber = scan.nextInt();
+            sum+=tempNumber;
+            totalNumber++;
+            if(tempNumber%2==1){
+                oddNumber++;
+            }
+            
         }
-
-        return sum;
+        oddPercentile=(oddNumber*1.0/totalNumber*100);
+        System.out.println("-----------------------");
+        System.out.println("Number Count: "+totalNumber+"\nSum of the Numbers: "+sum);
+        System.out.println("Odd Number Count: "+oddNumber+"\nOdd percentile: "+oddPercentile);
+        System.out.println("-----------------------\ngithub: ozturkoglukagan\n-----------------------");
 
     }
-
+    
 }
