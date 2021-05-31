@@ -14,50 +14,57 @@ public class HW03 {
     public static void main(String[] args) throws IOException {
         Scanner scanInt = new Scanner(System.in);
         Scanner scanStr = new Scanner(System.in);
-        System.out.println("Welcome to my Perfect Number program.");
-        System.out.println("Please enter an integer you want to check: ");
-        int number=scanInt.nextInt();
-        if (number==perfectNum(number)) {
-            System.out.println("The Number is a perfect number!!");
-        } else {
-            System.out.println("The Number is not a perfect number.");
-        }
-        
-        
-        /*int intArray[] = { 7,2,8,9,4,13,7,1,9,10};
-        printArray(collapse(intArray));*/
-        
-        // System.out.println(digitSum(23123123));
 
         /*
+         * Question 1
+         * 
+         * diceSum(scanInt);
+         */
+
+        /*
+         * Question 2
+         * 
          * System.out.println("Welcome to my employee program."); mainMenu(scanInt,
-         * scanStr);
+         * scanStr); addEmployee(scanInt, scanStr); readEmployee(scanInt, scanStr);
+         * coderInfo();
          */
 
         /*
-         * addEmployee(scanInt, scanStr); readEmployee(scanInt, scanStr); coderInfo();
+         * Question 3
+         * 
+         * int intArray[] = { 7,2,8,9,4,13,7,1,9,10}; printArray(collapse(intArray));
          */
 
+        /*
+         * Question 4
+         * 
+         * System.out.println("Welcome to my Perfect Number program.");
+         * System.out.println("Please enter an integer you want to check: "); int number
+         * = scanInt.nextInt(); if (number == perfectNum(1, number)) {
+         * System.out.println("The Number is a perfect number!!"); } else {
+         * System.out.println("The Number is not a perfect number."); }
+         */
+
+         /*
+         * Question 5
+         * 
+         * System.out.println(digitSum(23123123));
+         */
     }
 
-    public static int perfectNum(int number) {
-        if (number == 1){
-			return number;
-		}
+    public static int perfectNum(int i, int number) {
+        if (i == 1)
+            return 1 + perfectNum(i + 1, number);
 
-        for (int i = 1; i < number; ++i) {
+        else if (i < number && number % i == 0)
+            return i + perfectNum(i + 1, number);
 
-            if (number % i == 0) {
-              return i + perfectNum(number/i);
-            }
-          }
-        
-        return number;
+        else if (i < number && number % i != 0)
+            return 0 + perfectNum(i + 1, number);
+
+        else
+            return 0;
     }
-
-   
-
-    
 
     // to have a reccuring base
     public static void mainMenu(Scanner scanInt, Scanner scanStr) throws IOException {
@@ -112,12 +119,14 @@ public class HW03 {
         }
         mainMenu(scanInt, scanStr);
     }
+
     // for debugging purposes
     public static void printArray(int[] intArray) {
         for (int i = 0; i < intArray.length; i++) {
-            System.out.print(intArray[i]+" ");
+            System.out.print(intArray[i] + " ");
         }
     }
+
     // for debugging purposes
     public static void printArray(String[] strArray) {
         for (int i = 0; i < strArray.length; i++) {
@@ -189,6 +198,7 @@ public class HW03 {
         }
         System.out.println("Program found the desired answer in " + count + " tries.");
     }
+
     public static int digitSum(int n) {
         /*
          * we need to use < instead of > in if statement because if we don’t use that
@@ -200,19 +210,20 @@ public class HW03 {
         } else
             return n % 10 + digitSum(n / 10);
     }
+
     public static int[] collapse(int[] intArray) {
-	    int[] newArray = new int[(intArray.length + 1) / 2];
-	    int index = 0;
-	    
-	    for(int i = 0; i <= intArray.length - 2; i += 2) {
-	        newArray[index] = intArray[i] + intArray[i+1];
-	        index++;
-	    }
-	    
-	    if(index != newArray.length){
-	        newArray[index] = intArray[intArray.length - 1];
+        int[] newArray = new int[(intArray.length + 1) / 2];
+        int index = 0;
+
+        for (int i = 0; i <= intArray.length - 2; i += 2) {
+            newArray[index] = intArray[i] + intArray[i + 1];
+            index++;
         }
-        
-	    return newArray;
+
+        if (index != newArray.length) {
+            newArray[index] = intArray[intArray.length - 1];
+        }
+
+        return newArray;
     }
 }
